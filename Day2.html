@@ -1,0 +1,255 @@
+<!DOCTYPE 
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Paper Plane Studio</title>
+
+</head>
+
+<body>
+    <form id="EmployeeDetails">
+
+   <table width="400" border="1">
+        
+        <tr>
+            <td colspan = "2">Employee Details</td>
+        </tr>
+        <tr>
+            <td colspan = "2">Paper Plane Studio</td>
+        </tr>
+
+        <tr >    
+
+            <th>First Name</th>
+
+            <td><input id="FirstName" type="text" autofocus/></td>
+
+        </tr>
+    <tr>
+        <th>Last Name</th>
+            <td><input id="LastName" type="text"/></td>
+
+    </tr>
+
+    <tr>
+        <th>GENDER</th> 
+        <td><input id="gender1" type="radio" name="gender" value="male"> Male
+            <input id="gender2" type="radio" name="gender" value="female"> Female       
+        </td>
+    </tr>
+    <tr>
+        <th>HOBBIES</th>
+        <td>
+            <input id="check1" type="checkbox">Reading<br>
+            <input id="check2" type="checkbox">Singing<br>
+            <input id="check3" type="checkbox">Dancing<br>
+        </td>   
+    </tr>
+    <tr>
+        <th >HIGHEST EDUCATION</th>
+        <td>
+            <select id="Education" name="EDUCATION"  >
+                <option selected="selected" value="default">NONE OF THESE</option>
+                <option value="master">MASTERS</option>
+                <option value="bacholers">BACHOLERS</option>
+                <option value="highschool">HIGH SCHOOL</option>
+              </select>
+        </td>
+    </tr>
+    <tr >
+        <th >Skillset</th>
+        <td >
+            <input id="skill" type="text" style="height: 50px;" value="">
+        </td>
+        
+    </tr>
+
+    <tr>
+        <th>Date of Birth</th>
+        <td>
+            <input type="date" id="DOB"/>
+        </td>
+    </tr>
+    <tr>
+        <th>Martial Status</th>
+        <td>
+            <input type="radio" id="married" name = "Status" value = "Married" onclick="EnableDisableTextBox()"/>Married  
+            <input type="radio" id="unmarried" name = "Status" value = "Unmarried" onclick="EnableDisableTextBox()" />Unmarried
+        </td>
+    </tr>
+    <script type="text/javascript">
+            function EnableDisableTextBox()
+            {
+                var status=document.getElementById("married");
+                var SpouseName=document.getElementById("SpouseName");
+                SpouseName.disabled = status.checked ? false : true ;
+                if(!SpouseName.disabled)
+                {
+                    SpouseName.focus();
+                }
+
+            }
+    </script>
+    <tr>
+        <th>Name of Spouse</th>
+        <td>
+            <input type="text" id="SpouseName"  value="lastname,firstname" onfocus="if (this.value=='lastname,firstname') this.value='';"disabled />
+        </td>
+    </tr>
+    <tr>
+        <th>EMAIL</th>
+        <td>
+            <input id="Email" type="text">
+        </td>
+
+    </tr>
+    <tr>
+        <th>PASSWORD</th>
+        <td>
+            <input id="Password" type="password">
+        </td>
+    </tr>
+    <tr style="height:50px">
+        <th>OTHER DETAILS</th>
+        <td>
+            <input id="Other" type="text" style="height: 50px;">
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <input type="button" name="reset_form" value="Reset" onclick="Reset()" />
+            
+            <script>
+                function Reset() 
+                {
+                  document.getElementById("EmployeeDetails").reset();
+                  document.getElementById("FirstName").focus();
+                }
+            </script>
+        </th>
+        <td>
+            <input type="button" name="Submit" value="Submit" onclick="Validate()" />
+            <script>
+                function Validate()
+                {
+                    var firstname = document.forms["EmployeeDetails"]["FirstName"].value;
+                    var lastname = document.forms["EmployeeDetails"]["LastName"].value;
+                    var genderS1 = document.forms["EmployeeDetails"]["gender1"].checked;
+                    var genderS2 = document.forms["EmployeeDetails"]["gender2"].checked;
+                    var hobby1 = document.forms["EmployeeDetails"]["check1"].checked;
+                    var hobby2 = document.forms["EmployeeDetails"]["check2"].checked;
+                    var hobby3 = document.forms["EmployeeDetails"]["check3"].checked;
+                    var education = document.forms["EmployeeDetails"]["Education"].value;
+                    var skillset = document.forms["EmployeeDetails"]["skill"].value;
+                    var dateofbirth = document.forms["EmployeeDetails"]["DOB"].value;
+                    var status1 = document.forms["EmployeeDetails"]["married"].checked;
+                    var status2 = document.forms["EmployeeDetails"]["unmarried"].checked;
+                    var spouse = document.forms["EmployeeDetails"]["SpouseName"].value;
+                    var email = document.forms["EmployeeDetails"]["Email"].value;
+                    var pass = document.forms["EmployeeDetails"]["Password"].value;
+                    var other = document.forms["EmployeeDetails"]["Other"].value;
+                    
+
+                    if (firstname == "") 
+                    {
+                        alert("First name not filled");    
+                        document.getElementById("FirstName").focus();
+                        return false;
+                    }
+                    
+                    else if(lastname == "")
+                    {
+                        alert("Last name not filled");    
+                        document.getElementById("LastName").focus();
+                        return false; 
+                    }
+                    else if(genderS1 == "" && genderS2 == "")
+                    {
+                        alert("Gender not selected");    
+                        document.getElementById("gender1").focus();
+                        
+                        return false; 
+                    }
+                    else if(hobby1 == "" && hobby2 == "" && hobby3 == "")
+                    {
+                        alert("please select hobbies");
+                        document.getElementById("check1").focus();
+                        return false;
+                    }
+                    else if(education == "default")
+                    {
+                        alert("please select highest education");
+                        document.getElementById("Education").focus();
+                        return false;
+                    }
+                    else if(skillset == "")
+                    {
+                        alert("please fill skill set");
+                        document.getElementById("skill").focus();
+                        return false;
+                    }
+                    else if(dateofbirth == null || dateofbirth == "")
+                    {
+                        alert("Please select your birth date");
+                        document.getElementById("DOB").focus();
+                        return false;
+                    }
+                    else if(status1 == "" && status2 == "")
+                    {
+                        alert("Select Martial Status");
+                        document.getElementById("married").focus();
+                        return false;
+                    }
+                    else if(spouse == "" && status1 == true)
+                    {
+                        alert("Enter spouse name ");
+                        document.getElementById("SpouseName").focus();
+                        return false;
+                    }
+                    else if (/\s/.test(spouse) == true)
+                    {
+                        alert("space are not allowed");
+                        document.getElementById("SpouseName").focus();
+                        return false;
+                    }
+                    else if (Email == "") 
+                    {
+                        alert("please fill email");    
+                        document.getElementById("Email").focus();
+                        return false;
+                    }
+                    else if (pass == "") 
+                    {
+                        alert("please fill password");    
+                        document.getElementById("Password").focus();
+                        return false;
+                    }
+                    else if (other == "") 
+                    {
+                        alert("other details is not filled");    
+                        document.getElementById("Other").focus();
+                        return false;
+                    }
+                    else
+                    {
+                        alert("THANK YOU");
+                        document.getElementById("EmployeeDetails").reset();
+                        document.getElementById("FirstName").focus();
+                    }
+
+                    
+                }
+            </script> 
+        </td>
+    </tr>
+ </table>
+</form>
+
+
+</body>
+
+</html>
