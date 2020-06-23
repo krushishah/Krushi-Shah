@@ -1,0 +1,137 @@
+<!DOCTYPE 
+
+<html>
+<script type="text/javascript" src="Day3.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Paper Plane Studio</title>
+
+</head>
+
+<body>
+    <form id="EmployeeDetails">
+
+   <table width="400" border ="1">
+        
+        <tr>
+            <td colspan = "2">Employee Details</td>
+        </tr>
+        <tr>
+            <td colspan = "2">Paper Plane Studio</td>
+        </tr>
+
+        <tr >    
+
+            <th>First Name</th>
+
+            <td><input id="FirstName" type="text" autofocus/></td>
+
+        </tr>
+    <tr>
+        <th>Last Name</th>
+            <td><input id="LastName" type="text"/></td>
+
+    </tr>
+
+    <tr>
+        <th>Employee ID</th>
+        <td>
+            <input type="text" id="EmpID">
+        </td>
+    </tr>
+
+    <tr>
+        <th>GENDER</th> 
+        <td><input id="gender" type="radio" name="gender" value="male"> Male
+            <input id="gender" type="radio" name="gender" value="female"> Female       
+        </td>
+    </tr>
+    <tr>
+        <th>HOBBIES</th>
+        <td>
+            <input id="check1" type="checkbox">Reading<br>
+            <input id="check2" type="checkbox">Singing<br>
+            <input id="check3" type="checkbox">Dancing<br>
+        </td>   
+    </tr>
+    <tr>
+        <th >HIGHEST EDUCATION</th>
+        <td>
+            <select id="Education" name="EDUCATION"  >
+                <option selected="selected" value="default">NONE OF THESE</option>
+                <option value="master">MASTERS</option>
+                <option value="bacholers">BACHOLERS</option>
+                <option value="highschool">HIGH SCHOOL</option>
+              </select>
+        </td>
+    </tr>
+    <tr >
+        <th >Skillset</th>
+        <td >
+            <input id="skill" type="text" style="height: 50px;" value="">
+        </td>
+        
+    </tr>
+
+    <tr>
+        <th>Date of Birth</th>
+        <td>
+            <input type="text" id="DOB" value="dd/mm/yyyy" onfocus="if (this.value=='dd/mm/yyyy')this.value='';" />
+        </td>
+    </tr>
+    <tr>
+        <th>Martial Status</th>
+        <td>
+            <input type="radio" id="Status" name = "Status" value = "Married" onclick="EnableDisableTextBox()"/>Married  
+            <input type="radio" id="Status" name = "Status" value = "Unmarried" onclick="EnableDisableTextBox()" />Unmarried
+        </td>
+    </tr>
+    <tr>
+        <th>Name of Spouse</th>
+        <td>
+            <input type="text" id="SpouseName"  value="lastname,firstname" onfocus="if (this.value=='lastname,firstname') this.value='';"disabled />
+        </td>
+    </tr>
+    <tr>
+        <th>EMAIL</th>
+        <td>
+            <input id="Email" type="text">
+        </td>
+
+    </tr>
+    <tr>
+        <th>PASSWORD</th>
+        <td>
+            <input id="Password" type="password">
+        </td>
+    </tr>
+    <tr style="height:50px">
+        <th>OTHER DETAILS</th>
+        <td>
+            <input id="Other" type="text" style="height: 50px;">
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <input type="button" name="reset_form" value="Reset" onclick="Reset()" />
+        </th>
+        <td>
+            <input type="button" name="Submit" value="Submit" onclick="Validate()">
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <input type="button" name="Save" value="Save" onclick="SaveDetails()">
+        </th>
+        <td>
+            <input type="button" name="View" value="View" onclick="ViewDetails()">
+        </td>
+    </tr>
+ </table>
+ <table width="400" border ="1" id="ViewTable" style="visibility:hidden">
+ </table>
+
+</form>
+</body>
+</html>
