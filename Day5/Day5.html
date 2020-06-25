@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="Day5.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Paper Plane Studio</title>
+</head>
+<body>
+    <div id=container>
+    <form id="EmployeeDetails">
+
+   <table width="400" border ="1">
+    <tr>
+            <td colspan = "4">Employee Details</td>
+    </tr>
+    <tr>
+            <td colspan = "4">Paper Plane Studio</td>
+    </tr>
+    <tr > 
+            <th>First Name</th>
+            <td>
+                <input id="FirstName" type="text" autofocus oninput="hide('l1')"/>
+                <label id="l1" class="Label"></label>
+            </td>
+    </tr>
+        <tr>    
+        <th>Last Name</th>
+        <td><input id="LastName" type="text" oninput="hide('l2')"/>
+            <label id="l2" class="label"></label>
+        </td>
+    </tr>
+
+    <tr>
+        <th>Employee ID</th>
+        <td>
+            <input type="text" id="EmpID" oninput="hide('l3')">
+            <label id="l3" class="label"></label></label>
+        </td>
+    </tr>
+
+    <tr>
+        <th>GENDER</th> 
+        <td><input id="gender" type="radio" name="Gender" value="male" onselect="hide('l4')">Male
+            <input id="gender" type="radio" name="Gender" value="female" onselect="hide('l4')">Female    
+            <label id="l4" class="label"></label>   
+        </td>
+    </tr>
+    <tr>
+        <th>HOBBIES</th>
+        <td>
+            <input id="check1" type="checkbox" onselect="hide('l5')">Reading<br>
+            <input id="check2" type="checkbox" onselect="hide('l5')">Singing<br>
+            <input id="check3" type="checkbox" onselect="hide('l5')">Dancing<br>
+            <label id="l5" class="label"></label>
+        </td>   
+    </tr>
+    <tr>
+        <th >HIGHEST EDUCATION</th>
+        <td>
+            <select id="Education" name="EDUCATION" onselect="l6">
+                <option selected="selected" value="default">NONE OF THESE</option>
+                <option value="master">MASTERS</option>
+                <option value="bacholers">BACHOLERS</option>
+                <option value="highschool">HIGH SCHOOL</option>
+              </select>
+              <label id="l6" class="label"></label>
+        </td>
+    </tr>
+    <tr >
+        <th>Skillset</th>
+        <td >
+            <input id="skill" type="text" oninput="hide('l7')">
+            <label id="l7" class="label"></label>
+        </td>
+    </tr>
+    <tr>
+        <th>Date of Birth</th>
+        <td>
+            <input type="text" id="DOB" value="dd/mm/yyyy" onfocus="if (this.value=='dd/mm/yyyy')this.value='';" oninput="hide('l8')"/>
+            <label id="l8" class="label"></label>
+        </td>
+    </tr>
+    <tr>
+        <th>Martial Status</th>
+        <td>
+            <input type="radio" id="Status" name = "Status" value = "Married" onclick="enableDisableTextBox()" onselect="hide('l9')"/>Married  
+            <input type="radio" id="Status" name = "Status" value = "Unmarried" onclick="enableDisableTextBox()" onselect="hide('l9')"/>Unmarried
+            <label id="l9" class="label"></label>
+        </td>
+    </tr>
+    <tr>
+        <th>Name of Spouse</th>
+        <td>
+            <input type="text" id="SpouseName"  value="lastname,firstname" onfocus="if (this.value=='lastname,firstname') this.value='';"disabled oninput="hide('l10')"/>
+            <label id="l10" class="label"></label>
+        </td>
+    </tr>
+    <tr>
+        <th>EMAIL</th>
+        <td>
+            <input id="Email" type="text" oninput="hide('l11')">
+            <label id="l11" class="label"></label>
+        </td>
+    </tr>
+    <tr>
+        <th>PASSWORD</th>
+        <td>
+            <input id="Password" type="password" oninput="criteria()" onfocus="hide('l12')">
+            <label id="l12" class="label "></label>
+            <div id="message" style="display: none;">
+                <h3 id="header"></h3>
+                <p id="lower"  class="Label"></p>
+                <p id="capital"  class="Label"></p>
+                <p id="number"  class="Label"></p>
+                <p id="special"  class="Label"></p>
+                <p id="length"  class="Label"></p>
+            </div>
+        </td>
+        
+    </tr>
+    <tr>
+        <th>OTHER DETAILS</th>
+        <td>
+            <input id="Other" type="text" oninput="hide('l13')">
+            <label id="l13" class="label"></label>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <input type="button" name="reset_form" value="Reset" onclick="reset()"/>
+        </th>
+        <td>
+            <input type="button" name="Submit" value="Submit" onclick="validate()">
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <input type="button" name="Save" value="Save" onclick="saveDetails()">
+        </th>
+        <td>
+            <input type="button" name="View" value="View" onclick="viewDetails()">
+        </td>
+    </tr>
+ </table>
+ <table width="400" border ="1" id="ViewTable" style="visibility:hidden;">
+ </table>
+</form>
+<div class="item" id="drag" >
+</div>
+<script>
+    //Dragging the div element and displaying the offset
+    const el = document.getElementById("drag");
+    el.addEventListener('mousedown',mousedown);
+
+    function mousedown(e)
+    {
+        window.addEventListener('mousemove',mousemove);
+        window.addEventListener('mouseup',mouseup);
+
+        var prevX = e.clientX;
+        var prevY = e.clientY;
+        
+        function mousemove(e)
+        {
+            var newX = prevX - e.clientX;
+            var newY = prevY - e.clientY;
+
+            const rect = el.getBoundingClientRect();
+
+            el.style.left = rect.left - newX + "px";
+            el.style.top = rect.top - newY + "px";
+
+            prevX = e.clientX;
+            prevY = e.clientY;
+        }
+
+        function mouseup()
+        {
+            window.removeEventListener('mousemove',mousemove);
+            window.removeEventListener('mouseupmouseup',mouseup);
+            console.log("X Offset :"+prevX);
+            console.log("Y offset :"+prevY);
+        }
+    }
+</script>
+</body>
+</html>
