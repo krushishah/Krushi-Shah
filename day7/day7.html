@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="day7.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag And Drop</title>
+</head>
+<body>
+    <div id="Country" ondrop="drop(event)"  ondragover="dragEnter(event)" ondragenter="dragEnter(event)" class="div">Country</div><br>
+    <div id="Animal" ondrop="drop(event)"  ondragover="dragEnter(event)" ondragenter="dragEnter(event)"class="div">Animal</div><br>
+    <div id="Bike" ondrop="drop(event)"  ondragover="dragEnter(event)" ondragenter="dragEnter(event)"class="div">Bike</div><br>
+    <div id="Name" ondrop="drop(event)"  ondragover="dragEnter(event)" ondragenter="dragEnter(event)"class="div">Name</div><br>
+    
+    <p id="name" class="Name" draggable="true" ondragstart="drag(event)">Krushi</p>
+    <p id="animal" class="Animal" draggable="true" ondragstart="drag(event)">Tiger</p>
+    <p id="bike" class="Bike" draggable="true" ondragstart="drag(event)">KAWASAKI</p>
+    <script type="text/javascript" src="day7.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.div {
+    width: 350px;
+    height: 160px;
+    padding: 10px;
+    border: 1px solid #1a65d4;
+  }
+  #drag1{
+    position: absolute;
+    left: 400px;
+    top: 10px;
+    z-index: 0;
+  }
+  #drag2{
+    position: absolute;
+    left: 400px;
+    top: 200px;
+    z-index: 0;
+  }
+  #drag3{
+    position: absolute;
+    left: 400px;
+    top: 395px;
+    z-index: 0;
+  }
+  .droptarget {
+    float: left; 
+    width: 200px; 
+    height: 100px;
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+  }
