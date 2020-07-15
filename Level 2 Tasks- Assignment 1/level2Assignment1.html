@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="level2Assignment1.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div>
+        <label id="CurrentTime" class="custom-label"></label><br><br><br>
+        <select name="Cities" id="city" class="custom-select">
+            <option value="Default">Select City</option>
+            <option id="Mumbai" value="Mumbai" offset="5.5">Mumbai</option>
+            <option id="NewYork" value="NewYork" offset="-4">New York</option>
+            <option id="London" value="London" offset="1">London</option>
+            <option id="Dubai" value="Dubai" offset="4">Dubai</option>
+        </select>
+        <label id="selectError" style="display: none; color:red;" >****Select Correct Option****</label><br><br><br>
+        <button id="btn-submit" class="custom-btn">Submit</button><br><br><br>
+        <label id="Time" class="custom-label"></label>
+    </div>
+    <script type="text/javascript" src="level2Assignment1.js"></script>
+</body>
+</html>

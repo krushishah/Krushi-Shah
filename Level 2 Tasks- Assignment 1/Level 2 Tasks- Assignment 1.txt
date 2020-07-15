@@ -1,0 +1,6 @@
+WorldClock
+ a) Show the current time in a digital format
+
+b) Provide a drop down which has a list of cities. Eg. Mumbai, London, Dubai, New York
+
+Selecting the cities from the drop down should show the time of the city which is selected.
