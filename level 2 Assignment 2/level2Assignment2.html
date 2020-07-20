@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css">
+    <link rel="stylesheet" href="level2Assignment2.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <title>Test</title>
+</head>
+
+<body>
+    <!--zero contacts-->
+    <main class="ui segment" id="zero-contacts" style="display: none;">
+        <h1 class="ui header">Contacts</h1>
+        <div class="ui message">
+            <div class="header">
+                No contact in your address book
+
+            </div>
+            <p>Why dont you go ahead and add one?</p>
+
+        </div>
+        <div class="ui  small primary labeled icon button" id="btn-addContact">
+            <i class="user icon"></i> Add Contact
+        </div>
+    </main>
+    <!-- add contact page -->
+    <main class="ui " id="addContact" style="display: none;">
+        <h1 class="ui header">Add Contact</h1>
+        <div class="ui attached message">
+            <div class="header">
+                Add new contact!
+            </div>
+            <p>Fill out the form below to add a new contact</p>
+        </div>
+        <form class="ui form attached segment">
+
+
+            <div class="ui error message" id="errorMessage" style="display:none">
+                <i class="close icon"></i>
+                <div class="header">
+                  There was some errors with your submission
+                </div>
+                <ul class="list" id="errorList">
+                </ul>
+            </div>
+            <div class="two fields">
+                <div class="field" id="Fname">
+                    <label>First name</label>
+                    <input type="text" name="shipping[first-name]" id="firstName" placeholder="First Name">
+                </div>
+                <div class="field" id="Lname">
+                    <label>Last Name</label>
+                    <input type="email" name="shipping[last-name]" id="lastName" placeholder="Last Name">
+                </div>
+
+            </div>
+            <div class="two fields">
+                <div class="field" id="mobile">
+                    <label>Mobile</label>
+                    <input type="number" name="shipping[first-name]" id="mobileNumber" placeholder="Mobile">
+                </div>
+                <div class="field" id="email">
+                    <label>Email</label>
+                    <input type="email" name="shipping[last-name]" id="Email" placeholder="Email">
+                </div>
+            </div>
+            <div class="fields six">
+                <div class="four  field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" tabindex="0" id="Favorite">
+                        <label>Favorite</label>
+                    </div>
+                </div>
+                <div class="four  field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" tabindex="0" id="Family">
+                        <label>Family</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ui button primary" tabindex="0" id="btn-add">Add Contact</div>
+            <div class="ui button " tabindex="0" id="btn-reset">Reset</div>
+        </form>
+    </main>
+        <!--display data-->
+        <main class="ui segment" id="collection-list" style="display: none;">
+            <div class="ui container">
+                <div class="ui right floated secondary menu">
+                  <a class="item active" id="allContacts">
+                  All
+                </a>
+                <a class="item" id="Favorites">
+                  Favorites
+                </a>
+                <a class="item" id="Families">
+                  Family
+                </a>
+                
+                </div>
+                <h1 class="ui header" id="totalContacts">Contacts</h1>
+            </div>
+            
+            <div class="ui green message" id="addDeleteMessage" style="display: none;"></div>
+            <table class="ui compact celled definition table">
+              <thead>
+                <tr>
+                  <th>
+                    <div class="ui fitted  checkbox">
+                      <input type="checkbox"> <label></label>
+                    </div></th>
+                  <th>Name</th>
+                  <th>Mobile </th>
+                  <th>E-mail address</th>
+                  <th>Favorite </th>
+                  <th>Family </th>
+                  <th>&nbsp;</th>
+                  <th>&nbsp;</th>
+                 
+                </tr>
+              </thead>
+              <tbody id="contactsTable">
+                <tr>
+                  <td class="collapsing">
+                    <div class="ui fitted  checkbox">
+                      <input type="checkbox"> <label></label>
+                    </div>
+                  </td>
+                  <td><a href="#">Parvez Ansari</a></td>
+                  <td>9998979695</td>
+                  <td>jhlilk22@yahoo.com</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                  <td class="selectable positive">
+                    <a href="#">Edit</a>
+                  </td>
+                  <td class="selectable negative">
+                    <a href="#">Delete</a>
+                  </td>
+                 
+                </tr>
+                <tr>
+                  <td class="collapsing">
+                    <div class="ui fitted  checkbox">
+                      <input type="checkbox"> <label></label>
+                    </div>
+                  </td>
+                  <td><a href="#">Jamie Harington</a></td>
+                  <td>9998979695</td>
+                  <td>jamieharingonton@yahoo.com</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td class="selectable positive">
+                    <a href="#">Edit</a>
+                  </td>
+                  <td class="selectable negative">
+                    <a href="#">Delete</a>
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <td class="collapsing">
+                    <div class="ui fitted  checkbox">
+                      <input type="checkbox"> <label></label>
+                    </div>
+                  </td>
+                  <td><a href="#">Jill Lewis</a></td>
+                  <td>9998979695</td>
+                  <td>jilsewris22@yahoo.com</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                  <td class="selectable positive">
+                    <a href="#" >Edit</a>
+                  </td>
+                  <td class="selectable negative">
+                    <a href="#" >Delete</a>
+                  </td>
+                  
+                </tr>
+              </tbody>
+              <tfoot class="full-width">
+                <tr>
+                  <th></th>
+                  <th colspan="7">
+                    <div class="ui right floated small primary labeled icon button" id="addContact-btn">
+                      <i class="user icon"></i> Add Contact
+                    </div>
+                    <div class="ui small button" id="selectedDelete">
+                      Delete Selected
+                    </div>
+                    <div class="ui small  disabled button" id="deleteAll">
+                      Delete All
+                    </div>
+                  </th>
+                </tr>
+              </tfoot>
+            </table>
+          </main>
+          <!--View Details -->
+      <main class="ui " id="contactDetails" style="display: none;">
+        <h1 class="ui header">Contact details</h1>
+        <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <div class="header" id="contactDetailsName" >
+            Parvez Ansari
+          </div>
+          <div class="meta" id="contactDetailsEmail">
+            parvez@paperplane.net
+          </div>
+          <div class="description" id="contactDetailsMobileNo">
+            9998979695
+          </div>
+        </div>
+        <div class="extra content">
+        <span class="left floated like">
+           <i class="check icon"></i>
+            Favorite
+        </span>
+        <span class="right floated star">
+          <i class="star icon"></i>
+          Family
+        </span>
+      </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button">Edit</div>
+            <div class="ui basic red button">Delete</div>
+          </div>
+        </div>
+      </div>
+    </div>    
+    </main>
+    <script type="text/javascript" src="level2Assignment2.js"></script>
+</body>
+</html>
